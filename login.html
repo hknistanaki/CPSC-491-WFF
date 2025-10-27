@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Water Fountain Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">Water Fountain Finder</a>
+        </div>
+        <div class="nav-center">
+            <input type="text" id="map-search" class="search-bar" placeholder="Search location...">
+        </div>
+        <div class="nav-right">
+            <div class="profile-dropdown">
+                <button class="profile-btn">Profile ▼</button>
+                <div class="dropdown-content">
+                    <a href="settings.html">Settings</a>
+                    <a href="#" id="auth-link">Log In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- login form -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Sign in</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Enter your email or username" required>
+                <div class="password-container">
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                    <label class="show-password">
+                        <input type="checkbox" id="show-password">
+                        <span>Show password</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Sign in</button>
+                <div class="form-footer">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+                </div>
+                <div class="create-account-link">
+                    <a href="signup.html">Create an Account</a>
+                </div>
+            </form>
+            <div id="login-error" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
+

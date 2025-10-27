@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Out - Water Fountain Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">Water Fountain Finder</a>
+        </div>
+        <div class="nav-center">
+            <input type="text" id="map-search" class="search-bar" placeholder="Search location...">
+        </div>
+        <div class="nav-right">
+            <div class="profile-dropdown">
+                <button class="profile-btn">Profile ▼</button>
+                <div class="dropdown-content">
+                    <a href="settings.html">Settings</a>
+                    <a href="#" id="auth-link">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- logout confirmation -->
+    <div class="auth-container">
+        <div class="auth-box logout-box">
+            <h2>Are you sure you want to sign out?</h2>
+            <div class="logout-actions">
+                <a href="index.html" class="btn-secondary">Take me back</a>
+                <button id="confirm-logout" class="btn-primary">Sign out</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
+

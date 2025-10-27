@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Fountain Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo">Water Fountain Finder</a>
+        </div>
+        <div class="nav-center">
+            <input type="text" id="map-search" class="search-bar" placeholder="Search location...">
+        </div>
+        <div class="nav-right">
+            <div class="profile-dropdown">
+                <button class="profile-btn">Profile ▼</button>
+                <div class="dropdown-content">
+                    <a href="settings.html">Settings</a>
+                    <a href="#" id="auth-link">Log In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main content -->
+    <div class="main-container">
+        <!-- map section -->
+        <div class="map-section">
+            <div id="map"></div>
+            <!-- context menu for map -->
+            <div id="map-context-menu" class="context-menu" style="display: none;">
+                <button id="add-fountain-btn">Add Fountain</button>
+            </div>
+            <!-- fountain context menu -->
+            <div id="fountain-context-menu" class="context-menu" style="display: none;">
+                <button id="view-fountain-btn">View</button>
+                <button id="report-fountain-btn">Report</button>
+            </div>
+        </div>
+
+        <!-- fountains list section -->
+        <div class="fountains-section" id="fountains-list-view">
+            <h2>Water Fountains</h2>
+            <div id="fountains-list" class="fountains-list">
+                <!-- Fountain items will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- fountain detail view -->
+        <div class="fountains-section" id="fountain-detail-view" style="display: none;">
+            <button id="back-to-list" class="back-btn">← Back to List</button>
+            <h2 id="fountain-detail-name"></h2>
+            <p id="fountain-detail-address"></p>
+            
+            <div class="status-section">
+                <h3>Status</h3>
+                <div class="status-indicator">
+                    <span class="status-circle" id="status-display"></span>
+                </div>
+            </div>
+
+            <div class="reviews-section">
+                <h3>Reviews</h3>
+                <div id="reviews-list" class="reviews-list">
+                    <!-- reviews will be added here -->
+                </div>
+            </div>
+
+            <button id="add-review-btn" class="btn-primary">Add Review</button>
+
+            <!-- add review form -->
+            <div id="add-review-form" class="review-form" style="display: none;">
+                <h3>Submit Review</h3>
+                <div class="status-selector">
+                    <label>Status:</label>
+                    <div class="status-options">
+                        <label>
+                            <input type="radio" name="status" value="red" required>
+                            <span class="status-circle red"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="status" value="yellow">
+                            <span class="status-circle yellow"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="status" value="green">
+                            <span class="status-circle green"></span>
+                        </label>
+                    </div>
+                </div>
+                <textarea id="review-text" maxlength="140" placeholder="Write your review (max 140 characters)"></textarea>
+                <div class="char-count"><span id="char-count">0</span>/140</div>
+                <div class="form-actions">
+                    <button id="submit-review-btn" class="btn-primary">Submit Review</button>
+                    <button id="cancel-review-btn" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs26g6Ex9DtIUR9Hf_7l_ksHhkuzhnUNU&libraries=places&callback=initMap&loading=async" async defer></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

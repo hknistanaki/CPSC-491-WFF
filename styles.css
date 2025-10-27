@@ -1,0 +1,590 @@
+/* global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+/* navigation bar */
+.navbar {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left {
+    flex: 1;
+}
+
+.nav-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-logo:hover {
+    color: #3498db;
+}
+
+.nav-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-btn {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.profile-btn:hover {
+    background-color: #3498db;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #2c3e50;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #ecf0f1;
+}
+
+/* main container */
+.main-container {
+    display: flex;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+/* map section */
+.map-section {
+    flex: 2;
+    position: relative;
+    background-color: #ddd;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* context menu */
+.context-menu {
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 5px 0;
+    z-index: 1000;
+}
+
+.context-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.context-menu button:hover {
+    background-color: #ecf0f1;
+}
+
+/* fountains section */
+.fountains-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+}
+
+.fountains-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.fountains-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fountain-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.fountain-item:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.fountain-item h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.fountain-item p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* fountain detail view */
+.back-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}
+
+.status-section {
+    margin: 20px 0;
+}
+
+.status-section h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.status-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid #ddd;
+}
+
+.status-circle.red {
+    background-color: #e74c3c;
+}
+
+.status-circle.yellow {
+    background-color: #f39c12;
+}
+
+.status-circle.green {
+    background-color: #27ae60;
+}
+
+/* reviews section */
+.reviews-section {
+    margin: 20px 0;
+}
+
+.reviews-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.review-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.review-status {
+    margin-bottom: 8px;
+}
+
+.review-status .status-circle {
+    width: 20px;
+    height: 20px;
+}
+
+.review-text {
+    color: #495057;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* review form */
+.review-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.review-form h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.status-selector {
+    margin-bottom: 15px;
+}
+
+.status-selector label {
+    display: block;
+    color: #495057;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.status-options {
+    display: flex;
+    gap: 15px;
+}
+
+.status-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.status-options input[type="radio"] {
+    margin-right: 8px;
+}
+
+#review-text {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 5px;
+}
+
+#review-text:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.char-count {
+    text-align: right;
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* buttons */
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* auth container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.auth-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-box h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-box input[type="text"],
+.auth-box input[type="email"],
+.auth-box input[type="password"] {
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.auth-box input[type="text"]:focus,
+.auth-box input[type="email"]:focus,
+.auth-box input[type="password"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.auth-box input::placeholder {
+    color: #adb5bd;
+}
+
+.password-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #495057;
+    cursor: pointer;
+}
+
+.show-password input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #495057;
+    cursor: pointer;
+}
+
+.remember-me input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.forgot-link {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.forgot-link:hover {
+    color: #2980b9;
+}
+
+.create-account-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-account-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.create-account-link a:hover {
+    color: #2980b9;
+}
+
+/* settings box */
+.settings-box {
+    max-width: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #495057;
+    font-weight: 500;
+}
+
+/* logout box */
+.logout-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.logout-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* error and success messages */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-left, .nav-center, .nav-right {
+        flex: 1;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .map-section {
+        height: 50vh;
+    }
+    
+    .fountains-section {
+        height: 50vh;
+    }
+}
+
