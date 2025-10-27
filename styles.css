@@ -67,6 +67,7 @@ body {
 
 .profile-dropdown {
     position: relative;
+    display: inline-block;
 }
 
 .profile-btn {
@@ -92,8 +93,6 @@ body {
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-radius: 5px;
-    overflow: hidden;
-    margin-top: 5px;
 }
 
 .profile-dropdown:hover .dropdown-content {
