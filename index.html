@@ -102,8 +102,17 @@
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script src="api-client.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs26g6Ex9DtIUR9Hf_7l_ksHhkuzhnUNU&libraries=places&callback=initMap&loading=async" async defer></script>
+    <script>
+        (function() {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${CONFIG.GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap&loading=async`;
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+        })();
+    </script>
     <script src="app.js"></script>
 </body>
 </html>

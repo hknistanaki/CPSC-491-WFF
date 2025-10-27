@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+backend.log
+frontend.log
+
+# environment files
+.env
+config.js
+
+# process ids
+.dev-pids
+
+# os files
+.DS_Store
+Thumbs.db
+
+# ide
+.vscode/
+.idea/
+*.swp
+*.swo
+
