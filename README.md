@@ -69,8 +69,19 @@ Open `config.js` and replace `YOUR_GOOGLE_MAPS_API_KEY_HERE` with your actual AP
 
 ### 3. Start the Application
 
+**Linux/Mac:**
 ```bash
 ./start-dev.sh
+```
+
+**Windows (Command Prompt):**
+```cmd
+start-dev.bat
+```
+
+**Windows (PowerShell):**
+```powershell
+.\start-dev.ps1
 ```
 
 The automated script will:
@@ -86,8 +97,19 @@ Navigate to:
 
 ### To Stop the Servers
 
+**Linux/Mac:**
 ```bash
 ./stop-dev.sh
+```
+
+**Windows (Command Prompt):**
+```cmd
+stop-dev.bat
+```
+
+**Windows (PowerShell):**
+```powershell
+.\stop-dev.ps1
 ```
 
 ## Project Structure
@@ -130,4 +152,4 @@ CPSC-491-WFF/
 
 ## AI Disclosure
 
-- AI was used to help generate README.md, start-dev.sh, stop-dev.sh, server.js
+- AI was used to help generate README.md, start-dev, stop-dev, server.js
